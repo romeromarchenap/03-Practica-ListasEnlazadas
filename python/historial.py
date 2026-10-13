@@ -38,6 +38,19 @@ class BrowserHistory:
         #    Pista: tu ListaDoble ya sabe borrar por el final.
         # 2. Enlazar un nodo nuevo con url justo detras de self.actual.
         # 3. Mover self.actual a ese nodo nuevo.
+
+        while self.cola != self.actual:
+
+            self.delete_last()
+
+        nuevo = NodoDoble(url)
+        nuevo.anteior = self.actual
+        nuevo.siguiente = None
+        self.actual = nuevo
+        self.paginas.tamano += 1
+
+
+
         
 
     def back(self, steps):
